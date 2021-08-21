@@ -2,7 +2,6 @@
 <table>
   <thead>
     <tr>
-      <th scope="col">No.</th>
       <th scope="col">タイトル</th>
       <th scope="col"></th>
     </tr>
@@ -11,9 +10,9 @@
     <% @documents.each do |document| %>
       <tr>
         <td><%= l document.created_at %>に投稿</td>
+        <h3><td><%= document.title %></td></h3>
       </tr>
       <tr>
-        <td><%= document.title %></td>
         <td>
           <%= link_to "記事詳細", document %>
           <%= link_to "記事編集", edit_document_path(document) %>

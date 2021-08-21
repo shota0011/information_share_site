@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   def index
+    @documents = Document.order(created_at: :asc)
   end
 
   def show

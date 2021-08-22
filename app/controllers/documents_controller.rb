@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  
   def index
     @documents = Document.order(created_at: :asc)
   end
@@ -17,9 +18,13 @@ class DocumentsController < ApplicationController
   end
 
   def edit
+    document = Document.find[:id]
   end
 
   def update
+    document = Document.find[:id]
+    document.update!
+    redirect_to root_path
   end
 
   def destroy

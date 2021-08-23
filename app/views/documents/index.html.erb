@@ -1,2 +1,26 @@
-<h1>Documents#index</h1>
-<p>Find me in app/views/documents/index.html.erb</p>
+<h1>投稿一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col"><h3>タイトル</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td>
+          <%= l document.created_at %>に投稿
+          <h2><%= document.title %></h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "記事詳細", document %>
+          <%= link_to "記事編集", edit_document_path(document) %>
+          <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" } %>
+          <hr>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

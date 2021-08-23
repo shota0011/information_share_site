@@ -1,11 +1,11 @@
 class DocumentsController < ApplicationController
-  
+  before_action :set_document, only: %i[show edit update destroy]
+
   def index
     @documents = Document.order(created_at: :asc)
   end
 
   def show
-    @document = Document.find(params[:id])
   end
 
   def new
@@ -18,18 +18,15 @@ class DocumentsController < ApplicationController
   end
 
   def edit
-    document = Document.find[:id]
   end
 
   def update
-    document = Document.find[:id]
-    document.update!
+    @document.update!
     redirect_to root_path
   end
 
   def destroy
-    document = Document.find(params[:id])
-    document.destroy!
+    @document.destroy!
     redirect_to root_path
   end
 
@@ -39,4 +36,7 @@ class DocumentsController < ApplicationController
     params.require(:document).permit(:title, :body)
   end
 
+  def set_document
+    @document = Document.find(params[:id])
+  end
 end

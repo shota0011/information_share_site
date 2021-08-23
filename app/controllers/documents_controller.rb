@@ -39,3 +39,4 @@ class DocumentsController < ApplicationController
   def set_document
     @document = Document.find(params[:id])
   end
+end

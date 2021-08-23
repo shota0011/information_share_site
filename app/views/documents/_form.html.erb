@@ -1,0 +1,13 @@
+<%= form_with model:@documnet, local: true do |form| %>
+<div>
+  <%= form.label :title, "タイトル" %>
+  <%= form.text_field :title %>
+</div>
+<div>
+  <%= form.label :body, "本文" %>
+  <%= form.text_area :body %>
+</div>
+<div>
+  <%= form.submit botton_value %>
+<div>
+<% end %>

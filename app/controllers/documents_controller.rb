@@ -14,20 +14,20 @@ class DocumentsController < ApplicationController
 
   def create
     document = Document.create!(document_params)
-    redirect_to document
+    redirect_to document, notice: "投稿しました"
   end
 
   def edit
   end
 
   def update
-    @document.update!
-    redirect_to root_path
+    @document.update!(document_params)
+    redirect_to @document, notice: "更新しました"
   end
 
   def destroy
     @document.destroy!
-    redirect_to root_path
+    redirect_to root_path, alert: "削除しました"
   end
 
   private

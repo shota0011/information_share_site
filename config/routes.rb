@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "documents#index"
   resources :documents
   post '/documents/new', to: 'documents#new'

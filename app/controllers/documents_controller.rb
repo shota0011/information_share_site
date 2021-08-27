@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    document = Document.create!(document_params)
+    document = current_user.documents.create!(document_params)
     redirect_to document, notice: "投稿しました"
   end
 

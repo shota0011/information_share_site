@@ -36,7 +36,7 @@ module InformationShareSite
     config.generators.system_tests = nil
 
     # タイムゾーンを日本に設定
-    config.time_zone = 'Asia/Tokyo'
+    config.time_zone = "Asia/Tokyo"
 
     # デフォルトのロケールを日本に設定
     config.i18n.default_locale = :ja

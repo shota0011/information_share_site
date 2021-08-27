@@ -32,11 +32,11 @@ class DocumentsController < ApplicationController
 
   private
 
-  def document_params
-    params.require(:document).permit(:title, :body)
-  end
+    def document_params
+      params.require(:document).permit(:title, :body)
+    end
 
-  def set_document
-    @document = Document.find(params[:id])
-  end
+    def set_document
+      @document = Document.find(params[:id])
+    end
 end

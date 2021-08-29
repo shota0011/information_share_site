@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update destroy]
 
   def index
-    @documents = Document.order(created_at: :asc)
+    @documents = Document.order(created_at: :desc)
   end
 
   def show

@@ -1,3 +1,10 @@
-<h1>記事詳細</h1>
-<p><%= @document.title %></p>
-<p><%= @document.body %></p>
+<h1 class="text-center">記事詳細</h1>
+<h6 div="text-right"><%= l @document.created_at %>に投稿
+<section class="card border-dark mt-5">
+  <div class="card-header">
+    <h4><%= @document.title %></h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= simple_format(h @document.body) %></p>
+  </div>
+</section>

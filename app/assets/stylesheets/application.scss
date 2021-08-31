@@ -38,3 +38,11 @@ body {
 .alert-alert {
   @extend .alert-danger;
 }
+
+
+// ログイン画面
+.container-login {
+  @extend .container-fluid;
+  max-width: 600px;
+  padding: 2rem;
+}

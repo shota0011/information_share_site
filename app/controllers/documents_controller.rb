@@ -1,8 +1,9 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update destroy]
+  PER_PAGE = 5
 
   def index
-    @documents = Document.order(created_at: :desc)
+    @documents = Document.order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show

@@ -1,21 +1,18 @@
-<h1>投稿一覧</h1>
-<table>
-  <tbody>
+<h1 class="text-center">投稿一覧</h1>
+<div class="container container-top">
+  <div>
     <% @documents.each do |document| %>
-      <tr>
-        <td>
-          <%= l document.created_at %>に投稿
-          <h2><%= document.title %></h2>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= link_to "記事詳細", document %>
-          <%= link_to "記事編集", edit_document_path(document) %>
-          <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" } %>
-          <hr>
-        </td>
-      </tr>
+      <td>
+        <%= l document.created_at %>に投稿
+        <h2><%= document.title %></h2>
+      </td>
+      <td>
+        <%= link_to "記事詳細", document %>
+        <%= link_to "記事編集", edit_document_path(document) %>
+        <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" } %>
+         <hr>
+      </td>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<%= paginate @documents %>
+</div>

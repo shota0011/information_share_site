@@ -7,9 +7,9 @@
         <h2><%= document.title %></h2>
       </td>
       <td>
-        <%= link_to "記事詳細", document %>
-        <%= link_to "記事編集", edit_document_path(document) %>
-        <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" } %>
+        <%= link_to "記事詳細", document, class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to "記事編集", edit_document_path(document), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-outline-primary btn-sm"  %>
          <hr>
       </td>
     <% end %>

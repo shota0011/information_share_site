@@ -4,12 +4,11 @@
     <% @documents.each do |document| %>
       <td>
         <%= l document.created_at %>に投稿
-        <h2><%= document.title %></h2>
+        <h3><%= link_to document.title, document, :style=>"color:black;" %></h3>
       </td>
       <td>
-        <%= link_to "記事詳細", document %>
-        <%= link_to "記事編集", edit_document_path(document) %>
-        <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" } %>
+        <%= link_to "編集", edit_document_path(document), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-outline-primary btn-sm"  %>
          <hr>
       </td>
     <% end %>

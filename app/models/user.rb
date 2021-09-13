@@ -1,9 +1,12 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :documents, dependent: :nullify
-  has_many :comments, dependent: :nullify
-  has_many :likes, dependent: :nullify
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_documents, through: :likes, source: :document
+
+  def already_liked?(document)
+    self.likes.exists?(document_id: document.id)
+  end
 end

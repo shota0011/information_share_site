@@ -3,6 +3,13 @@
 <section class="card border-dark mt-5">
   <div class="card-header">
     <h4><%= @document.title %></h4>
+    <p>
+    <% if @document.liked_by?(current_user) %>
+      <%= render "like", document: @document %>
+    <% else %>
+      <%= render "dislike", document: @document %>
+    <% end %>
+    </p>
   </div>
   <div class="card-body">
     <p class="card-text"><%= simple_format(h @document.body) %></p>

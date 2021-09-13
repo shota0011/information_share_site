@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   PER_PAGE = 5
 
   def index
-    @documents = Document.order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @documents = Document.includes(:user, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show

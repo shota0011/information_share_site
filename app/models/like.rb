@@ -1,4 +1,4 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :documents
+  belongs_to :document
 end

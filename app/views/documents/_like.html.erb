@@ -1,1 +1,3 @@
-<%= link_to "★", document_likes_path(document), method: :delete %>
+<%= link_to document_likes_path(document), method: :delete, remote: true do %>
+<i class="far fa-thumbs-up fa-lg"></i>
+<% end %>

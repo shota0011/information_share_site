@@ -1,1 +1,3 @@
-<%= link_to "☆", document_likes_path(document), method: :post %>
+<%= link_to document_likes_path(document), method: :post, remote: true do %>
+<i class="fas fa-thumbs-up fa-lg"></i>
+<% end %>

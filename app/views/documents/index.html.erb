@@ -5,7 +5,7 @@
       <td>
         <%= l document.created_at %>に投稿
         <h3><%= link_to document.title, document, :style=>"color:black;" %></h3>
-          <p>
+          <p id="document-<%= document.id %>">
             <% if document.liked_by?(current_user) %>
               <%= render "like", document: document %>
             <% else %>

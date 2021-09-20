@@ -1,0 +1,4 @@
+<%= link_to document_likes_path(document), method: :post, remote: true do %>
+<i class="far fa-thumbs-up fa-lg"></i>
+<%= document.likes_count %>
+<% end %>

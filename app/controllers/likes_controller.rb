@@ -1,17 +1,12 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: %i[create destroy]
 
   def create
-    current_user.likes.create!(document_id: @document.id)
+    current_user.likes.create!(document_id: params[:document_id])
+    @document = Document.find(params[:document_id])
   end
 
   def destroy
-    current_user.likes.find_by(document_id: @document.id).destroy!
-  end
-
-  private
-
-  def set_like
+    current_user.likes.find_by(document_id: params[:document_id]).destroy!
     @document = Document.find(params[:document_id])
   end
 

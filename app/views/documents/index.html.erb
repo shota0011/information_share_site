@@ -4,7 +4,13 @@
     <% @documents.each do |document| %>
       <td>
         <%= l document.created_at %>に投稿
-        <h3><%= link_to document.title, document, :style=>"color:black;" %></h3>
+        <h3>
+        <%= link_to document.title, document, :style=>"color:black;" %>
+        </h3>
+          <% if current_user.id == document.user_id %>
+            <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger btn-sm"  %>
+            <%= link_to "編集", edit_document_path(document), class: "btn btn-outline-primary  btn-sm" %>
+          <% end %>
           <p id="document-<%= document.id %>">
             <% if document.liked_by?(current_user) %>
               <%= render "like", document: document %>
@@ -12,11 +18,9 @@
               <%= render "dislike", document: document %>
             <% end %>
           </p>
+         <hr>
       </td>
       <td>
-        <%= link_to "編集", edit_document_path(document), class: "btn btn-outline-primary btn-sm" %>
-        <%= link_to "削除", document, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger btn-sm"  %>
-         <hr>
       </td>
     <% end %>
   </div>

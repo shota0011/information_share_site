@@ -1,6 +1,6 @@
 <h1 class="text-center">記事詳細</h1>
 <h6 div="text-right"><%= l @document.created_at %>に投稿
-<section class="card border-dark mt-5">
+<div class="card card-document border-dark mt-5">
   <div class="card-header">
     <h4><%= @document.title %></h4>
     <p id="document-<%= @document.id %>">
@@ -14,4 +14,11 @@
   <div class="card-body">
     <p class="card-text"><%= simple_format(h @document.body) %></p>
   </div>
-</section>
+</div>
+  <% if current_user.id == @document.user_id %>
+    <p>
+      <%= link_to "削除", document_path(@document), method: :delete, date: { confirm: "削除しますか？" }, class: "btn btn-danger btn-sm" %>
+      <%= link_to "編集", edit_document_path(@document), class: "btn btn-outline-primary btn-sm" %>
+    </p>
+  <% end %>
+  <p><%= link_to "戻る", documents_path, class: "btn btn-info active btn-block" %></p>

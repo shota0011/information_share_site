@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: [:index, :show]
   PER_PAGE = 5
 
   def index
@@ -39,5 +40,9 @@ class DocumentsController < ApplicationController
 
     def set_document
       @document = Document.find(params[:id])
+    end
+
+    def after_sign_out_path_for(resource)
+      document_path
     end
 end

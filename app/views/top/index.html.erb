@@ -7,13 +7,14 @@
           養護教諭のための<br>
           様々な情報を共有するサイト
         </h3>
-        <p class="card-text ">
+        <p class="card-text">
           養護教諭の仕事のやり方や仕事に対する悩みを共有し、<br>
           少しでも不安や悩みを解消出来ればと思い開発しました。
         </p>
-        <div class="btn-top btn-redius">
-          <%= link_to "記事を見てみる", documents_path, class: "text-white text-decoration-none" %>
-        </div>
+          <div class="btn-group-vertical float-right">
+              <%= link_to "ログイン", documents_path, class: "btn-top btn-redius text-white text-decoration-none" %>
+              <%= link_to "ログインせずに記事のみ確認", users_guest_sign_in_path, class: "btn-sm text-decoration-none mt-2 btn-outline-primary", method: :post %>
+          </div>
       </div>
     </div>
     <div class="col-md-6">
@@ -21,25 +22,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- 修正前
-<div class="main-container">
-  <div class="container-paragraf">
-    <h1 class="top-title">情報共有サイト</h1>
-    <h3 class="text">
-      このサイトは養護教諭のための<br>
-      様々な情報を共有するサイトです。
-    </h3>
-    <p class="sentence">
-      普段の仕事の中で仕事のやり方や仕事に対する悩みを共有し、<br>
-      少しでも不安や悩みを解消出来ればと思い開発しました。
-    </p>
-    <div class="btn-top btn-redius">
-      <%= link_to "記事を見てみる", documents_path, class: "text-white text-decoration-none"%>
-    </div>
-  </div>
-  <div class="container-image">
-  </div>
-</div>
--->

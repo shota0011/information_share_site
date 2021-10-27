@@ -26,11 +26,12 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   padding: 30px 15px;
 }
 
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   padding-top: 56px;
-    font-family: Arial,
-    Helvetica,
-    sans-serif;
 }
 
 // フラッシュ

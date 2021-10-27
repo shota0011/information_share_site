@@ -9,4 +9,10 @@ class User < ApplicationRecord
   def already_liked?(document)
     self.likes.exists?(document_id: document.id)
   end
+
+  def self.guest
+    find_or_create_by!(email: "guest@example.com") do |user|
+    user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end

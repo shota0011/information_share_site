@@ -4,7 +4,8 @@ class DocumentsController < ApplicationController
   PER_PAGE = 5
 
   def index
-    @documents = Document.includes(:user, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @q = Document.ransack(params[:q])
+    @documents = @q.result.includes(:user, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show
